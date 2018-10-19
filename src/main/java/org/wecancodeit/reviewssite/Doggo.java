@@ -1,15 +1,30 @@
 package org.wecancodeit.reviewssite;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Doggo {
 
+	@Id
+	@GeneratedValue
 	private Long id;
+
 	private String title;
 	private String url;
-	private String category;
+	@Lob
 	private String review;
 
-	public Doggo(Long id, String title, String url, String category, String review) {
-		this.id = id;
+	@ManyToOne
+	private Category category;
+
+	public Doggo() {
+	}
+
+	public Doggo(String title, String url, Category category, String review) {
 		this.title = title;
 		this.url = url;
 		this.category = category;
@@ -28,7 +43,7 @@ public class Doggo {
 		return url;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
