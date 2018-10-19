@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${doggo.title}"></title>
+</head>
+<body>
+	<h1 th:text="${doggo.title}"></h1>
+	<figure>
+	<!-- description of next item -->
+	<p th:text="|Category: ${doggo.category}|">Description/review</p>
+	<!-- add appropriate image here (don't forget alt attribute!) -->
+	<img th:src="@{|/images/${doggo.url}|}">
+	<figcaption th:text="${doggo.review}"></figcaption>
+</figure>
+
+</body>
+</html>

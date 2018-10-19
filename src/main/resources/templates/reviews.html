@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Doggos</title>
+</head>
+<body>
+	<header>
+		<h1>Doggos</h1>
+	</header>
+	<main>
+		<p><a href="/doggos">All Doggos</a></p>
+		<ul>
+			<li th:each="doggo : ${doggos}"><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Doggos</a></li>
+		</ul>
+	</main>
+	<footer>
+		<small>&copy; WCCI 2018</small>
+		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
+	</footer>
+</body>
+</html>
