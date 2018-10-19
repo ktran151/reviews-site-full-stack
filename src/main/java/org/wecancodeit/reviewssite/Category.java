@@ -18,6 +18,8 @@ public class Category {
 
 	@OneToMany(mappedBy = "category")
 	private Collection<Doggo> doggo;
+	
+	public Category() {}
 
 	public Category(String name) {
 		this.name = name;
