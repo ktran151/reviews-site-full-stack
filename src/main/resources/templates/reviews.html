@@ -3,13 +3,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Doggos</title>
+	
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+<div class="container">
 	<header>
 		<h1>Doggos</h1>
+		<ul>
+			<li><a href="../doggos" >Doggos</a></li>
+			<li><a href="../categories">Categories</a></li>
+		</ul>
 	</header>
 	<main>
-		<p><a href="/doggos">All Doggos</a></p>
 		<ul>
 			<li th:each="doggo : ${doggos}"><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Doggos</a></li>
 		</ul>
@@ -18,5 +25,6 @@
 		<small>&copy; WCCI 2018</small>
 		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
 	</footer>
+</div>
 </body>
 </html>
