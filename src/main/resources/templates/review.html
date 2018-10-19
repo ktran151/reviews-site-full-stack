@@ -7,7 +7,7 @@
 	<h1 th:text="${doggo.title}"></h1>
 	<figure>
 	<!-- description of next item -->
-	<p th:text="|Category: ${doggo.category}|">Description/review</p>
+	<!--<p th:text="|Category: ${doggo.category.name}|">Description/review</p>-->
 	<!-- add appropriate image here (don't forget alt attribute!) -->
 	<img th:src="@{|/images/${doggo.url}|}">
 	<figcaption th:text="${doggo.review}"></figcaption>

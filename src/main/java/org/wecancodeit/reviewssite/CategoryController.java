@@ -16,13 +16,14 @@ public class CategoryController {
 	private CategoryRepository categoryRepo;
 
 	@GetMapping("")
-	public String getHome() {
-		return "categories/index";
+	public String getHome(Model model) {
+		model.addAttribute("categories", categoryRepo.findAll());
+		return "categories/categories";
 	}
 
 	@GetMapping("/{id}")
 	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
-		model.addAttribute("doggo", categoryRepo.findById(id));
+		model.addAttribute("category", categoryRepo.findById(id).get());
 		return "categories/category";
 	}
 }

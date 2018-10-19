@@ -24,13 +24,13 @@ public class CategoryControllerTest {
 
 	@Test
 	public void shouldBeOkfromHome() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk());
+		mockMvc.perform(get("/categories")).andExpect(status().isOk());
 		// ^Arrange----^Act--------------------^Assert
 	}
 
 	@Test
 	public void shouldShowHome() throws Exception {
-		mockMvc.perform(get("/")).andExpect(view().name("index"));
+		mockMvc.perform(get("/categories")).andExpect(view().name("categories/categories"));
 		// ^Arrange----^Act--------------------^Assert
 	}
 

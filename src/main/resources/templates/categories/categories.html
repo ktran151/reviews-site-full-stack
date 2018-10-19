@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Categories</title>
+</head>
+<body>
+	<header>
+		<h1>Categories</h1>
+	</header>
+	<main>
+		<p><a href="/doggos">All Categories</a></p>
+		<ul>
+			<li th:each="category : ${categories}"><a th:href="|/categories/${category.id}|" th:text="${category.name}">categories</a></li>
+		</ul>
+	</main>
+	<footer>
+		<small>&copy; WCCI 2018</small>
+		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
+	</footer>
+</body>
+</html>
