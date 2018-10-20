@@ -2,28 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title th:text="${category.name}"></title>
-	
-	<link rel="stylesheet" type="text/css" href="/css/layout.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<div class="container">
-	<header>
-		<h1 th:text="${category.name}"></h1>
-		<ul>
-			<li><a href="../doggos" >Doggos</a></li>
-			<li><a href="../categories">Categories</a></li>
-		</ul>
-	</header>
-	<main>
-		<ul>
-			<li th:each=" doggo: ${category.doggo}" ><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Description/review</a></li>
-		</ul>
-	</main>
-	<footer>
-		<small>&copy; WCCI 2018</small>
-		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
-	</footer>
-</div>
+	<h1 th:text="${category.name}"></h1>
+	<ul>
+	<li th:each=" doggo: ${category.doggo}" ><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Description/review</a></li>
+	</ul>
+
+
 </body>
 </html>
