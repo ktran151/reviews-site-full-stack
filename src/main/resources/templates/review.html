@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 	<header>
-		<h1 th:text="${doggo.title}"></h1>
+		<h1 th:text="|${doggo.title} Boy|"></h1>
 		<ul>
 			<li><a href="../doggos" >Doggos</a></li>
 			<li><a href="../categories">Categories</a></li>
@@ -17,7 +17,8 @@
 	</header>
 	<main>
 		<figure>
-			<p th:text="|Category: ${doggo.category.name}|">category</p>
+			<p>Category: </p>
+			<a th:href="|../categories/${doggo.category.id}|"><span th:text="${doggo.category.name}">category</span></a>
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
 		</figure>
