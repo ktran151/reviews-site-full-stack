@@ -9,6 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Doggo {
@@ -25,18 +26,24 @@ public class Doggo {
 	@ManyToOne
 	private Category category;
 	
-
-	private Collection<Tags> tags;
+	@OneToMany(mappedBy = "Comment")
+	private Collection<Comment> comment;
 	
+	private Collection<Tag> tags;
+	
+	@ManyToMany
+	@JoinTable(name="DOG_TAGS")
+	private Collection<Tag> getTags() {return tags;}
 
 	public Doggo() {
 	}
 
-	public Doggo(String title, String url, Category category, String review) {
+	public Doggo(String title, String url, Category category, String review, Collection<Tag> tags) {
 		this.title = title;
 		this.url = url;
 		this.category = category;
 		this.review = review;
+		this.tags = tags;
 	}
 
 	public Long getId() {
@@ -59,7 +66,4 @@ public class Doggo {
 		return review;
 	}
 	
-	@ManyToMany
-	@JoinTable(name="DOG_TAGS")
-	private Collection<Tags> getTags() {return tags;};
 }

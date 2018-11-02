@@ -23,7 +23,7 @@ public class DoggoRepositoryTest {
 	public void shouldContainDoggo() {
 		Category categoryOne = categoryRepo.save(new Category(""));
 		Doggo doggoOne = doggoRepo.save(new Doggo("Tricky", "tricky.gif", categoryOne,
-				"Sneaky boy will fake pets to steal treats (3/10)"));
+				"Sneaky boy will fake pets to steal treats (3/10)",null));
 		
 		Iterable<Doggo> result = doggoRepo.findAll();
 		

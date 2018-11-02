@@ -1,18 +1,20 @@
 package org.wecancodeit.reviewssite;
 import java.util.Collection;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-public class Tags {
+@Entity
+public class Tag {
 	
 	
-	
+	public Tag(){
+	}
 
-	public Tags(String tName, Collection<Doggo> doggos) {
+	public Tag(String tName) {
 		this.tName = tName;
-		this.doggos = doggos;
 	}
 
 	public void setDoggos(Collection<Doggo> doggos) {
