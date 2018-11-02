@@ -1,9 +1,13 @@
 package org.wecancodeit.reviewssite;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,6 +24,10 @@ public class Doggo {
 
 	@ManyToOne
 	private Category category;
+	
+
+	private Collection<Tags> tags;
+	
 
 	public Doggo() {
 	}
@@ -50,4 +58,8 @@ public class Doggo {
 	public String getReview() {
 		return review;
 	}
+	
+	@ManyToMany
+	@JoinTable(name="DOG_TAGS")
+	private Collection<Tags> getTags() {return tags;};
 }
