@@ -21,7 +21,6 @@ public class Comment {
 	public Comment() {}
 	
 	public Comment(String userName, String comment, Doggo doggo) {
-		super();
 		this.userName = userName;
 		this.comment = comment;
 		this.doggo = doggo;

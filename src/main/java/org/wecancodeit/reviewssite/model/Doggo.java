@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -25,7 +26,10 @@ public class Doggo {
 	private Category category;
 	
 	@OneToMany(mappedBy = "doggo")
-	private Collection<Comment> comment;
+	private Collection<Comment> comments;
+	
+	@ManyToMany(mappedBy = "doggos")
+	private Collection<Tag> tags;
 
 	public Doggo() {
 	}
@@ -35,6 +39,10 @@ public class Doggo {
 		this.url = url;
 		this.category = category;
 		this.review = review;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	public Long getId() {
@@ -55,5 +63,9 @@ public class Doggo {
 
 	public String getReview() {
 		return review;
+	}
+	
+	public Collection<Comment> getComments(){
+		return comments;
 	}
 }

@@ -17,7 +17,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(mappedBy = "category")
-	private Collection<Doggo> doggo;
+	private Collection<Doggo> doggos;
 	
 	public Category() {}
 
@@ -33,8 +33,8 @@ public class Category {
 		return name;
 	}
 
-	public Collection<Doggo> getDoggo() {
-		return doggo;
+	public Collection<Doggo> getDoggos() {
+		return doggos;
 	}
 
 }
