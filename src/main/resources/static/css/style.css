@@ -16,6 +16,10 @@ footer{
 	background-color: black;
 }
 
+form{
+	margin: 2rem 0;
+}
+
 header{
 	color: white;
 	background-color: black;
@@ -24,4 +28,13 @@ header{
 header li{
 	color: white;
 	list-style-type: none;
+}
+
+#commentsSection{
+	margin: 1rem 0;
+	list-style-type: none;
+}
+
+.tagMaker{
+	margin: 1rem 0;
 }

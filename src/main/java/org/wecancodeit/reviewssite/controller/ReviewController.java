@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.wecancodeit.reviewssite.model.Comment;
-import org.wecancodeit.reviewssite.model.Tag;
 import org.wecancodeit.reviewssite.repository.CommentRepository;
 import org.wecancodeit.reviewssite.repository.DoggoRepository;
-import org.wecancodeit.reviewssite.repository.TagRepository;
 
 @Controller
 public class ReviewController {
@@ -20,9 +18,6 @@ public class ReviewController {
 	
 	@Autowired
 	private CommentRepository commentRepo;
-	
-	@Autowired
-	private TagRepository tagRepo;
 
 	@GetMapping("/")
 	public String getHome() {
@@ -47,14 +42,4 @@ public class ReviewController {
 		return "redirect:/doggos/" + id;
 	}
 	
-	@PostMapping("doggos/{id}/add-tag")
-	public String addComment(@PathVariable(value = "id") Long id, String tag, Model model) {
-		if(tagRepo.findByTagNameIgnoreCase(tag)!=null) {
-			tagRepo.findByTagNameIgnoreCase(tag).addDoggo(reviewRepo.findById(id).get());
-		} else {
-			tagRepo.save(new Tag(tag));
-			tagRepo.findByTagNameIgnoreCase(tag).addDoggo(reviewRepo.findById(id).get());
-		}
-		return "redirect:/doggos/" + id;
-	}
 }
