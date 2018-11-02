@@ -22,11 +22,20 @@
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
 		</figure>
+		
+		<form th:action="|../doggos/${doggo.id}/add-comment|" method="post">
+			<label>Username: <input type="text" name="userName" /></label>
+			<label>Comment: <input type="text" name="comment" /></label>
+			<input type="submit" value="Submit" />
+		</form>
 	</main>
 	<footer>
 		<small>&copy; WCCI 2018</small>
 		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
 	</footer>
+	<ul>
+		<li th:each="comment : ${doggo.comment}"></li>
+	</ul>
 </div>
 </body>
 </html>

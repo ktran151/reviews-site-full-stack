@@ -1,17 +1,23 @@
-package org.wecancodeit.reviewssite;
+package org.wecancodeit.reviewssite.controller;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.wecancodeit.reviewssite.model.Comment;
+import org.wecancodeit.reviewssite.repository.CommentRepository;
+import org.wecancodeit.reviewssite.repository.DoggoRepository;
 
 @Controller
 public class ReviewController {
 
-	@Resource
+	@Autowired
 	private DoggoRepository reviewRepo;
+	
+	@Autowired
+	private CommentRepository commentRepo;
 
 	@GetMapping("/")
 	public String getHome() {
@@ -27,7 +33,12 @@ public class ReviewController {
 	@GetMapping("doggos/{id}")
 	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("doggo", reviewRepo.findById(id).get());
-//		model.addAttribute("category", reviewRepo.findById(id).
 		return "review";
+	}
+	
+	@PostMapping("doggos/{id}/add-comment")
+	public String addComment(@PathVariable(value = "id") Long id, String userName, String comment, Model model) {
+		commentRepo.save(new Comment(userName, comment, reviewRepo.findById(id).get()));
+		return "redirect:/doggos/" + id;
 	}
 }
