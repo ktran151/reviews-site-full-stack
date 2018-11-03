@@ -26,11 +26,14 @@ public class Doggo {
 
 	@ManyToOne
 	private Category category;
+
 	
 	@OneToMany(mappedBy="doggo")
+
 	private Collection<Comment> comment;
-	
+
 	private Collection<Tag> tags;
+
 	
 	
 //******* ManyToMany	
@@ -40,7 +43,6 @@ public class Doggo {
 		private Collection<Tag> getTags() {
 			return tags;
 	}
-
 
 	public Doggo() {
 	}
@@ -72,5 +74,5 @@ public class Doggo {
 	public String getReview() {
 		return review;
 	}
-	
+
 }

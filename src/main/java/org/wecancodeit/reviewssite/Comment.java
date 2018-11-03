@@ -7,6 +7,15 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	@Lob
+	private String text;
+
+	@ManyToOne
+	private Doggo doggo;
 
 	public Comment() {
 	}
