@@ -1,4 +1,4 @@
-package org.wecancodeit.reviewssite;
+/*package org.wecancodeit.reviewssite;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,11 +7,13 @@ import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+
 import org.wecancodeit.reviewssite.models.Category;
 import org.wecancodeit.reviewssite.models.Doggo;
 import org.wecancodeit.reviewssite.models.Tag;
 import org.wecancodeit.reviewssite.repositories.CategoryRepository;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
+
 
 @Service
 public class DoggoPopulator implements CommandLineRunner {
@@ -115,4 +117,4 @@ public class DoggoPopulator implements CommandLineRunner {
 		
 
 	}
-}
+}*/
