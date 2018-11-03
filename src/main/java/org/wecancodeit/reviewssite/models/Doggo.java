@@ -1,12 +1,11 @@
 package org.wecancodeit.reviewssite.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -26,21 +25,13 @@ public class Doggo {
 
 	@ManyToOne
 	private Category category;
-	
-	@OneToMany(mappedBy="doggo")
-	private Collection<Comment> comment;
-	
-	private Collection<Tag> tags;
-	
-	
-//******* ManyToMany	
-	@ManyToMany
-	@JoinTable(name="DOG_TAGS", joinColumns = { @JoinColumn(name = "DOG_ID")},
-		inverseJoinColumns = {@JoinColumn(name="TAG_ID")})
-		private Collection<Tag> getTags() {
-			return tags;
-	}
 
+	@OneToMany(mappedBy = "doggo")
+
+	private Collection<Comment> comment;
+
+	@ManyToMany
+	private Collection<Tag> tags = new ArrayList<>();
 
 	public Doggo() {
 	}
@@ -51,6 +42,7 @@ public class Doggo {
 		this.category = category;
 		this.review = review;
 		this.tags = tags;
+
 	}
 
 	public Long getId() {
@@ -72,5 +64,13 @@ public class Doggo {
 	public String getReview() {
 		return review;
 	}
-	
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+
+	public void addTag(Tag tag) {
+		tags.add(tag);
+	}
+
 }
