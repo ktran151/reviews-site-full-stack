@@ -1,4 +1,4 @@
-package org.wecancodeit.reviewssite;
+package org.wecancodeit.reviewssite.controllers;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.reviewssite.controllers.ReviewController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

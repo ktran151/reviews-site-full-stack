@@ -1,4 +1,4 @@
-package org.wecancodeit.reviewssite;
+package org.wecancodeit.reviewssite.models;
 
 import java.util.Collection;
 
