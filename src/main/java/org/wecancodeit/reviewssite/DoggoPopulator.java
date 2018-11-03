@@ -15,6 +15,12 @@ public class DoggoPopulator implements CommandLineRunner {
 
 	@Resource
 	CategoryRepository categoryRepo;
+	
+	@Resource
+	CommentRepository commentRepo;
+	
+	@Resource
+	TagRepository tagRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -38,6 +44,19 @@ public class DoggoPopulator implements CommandLineRunner {
 		Tag tagTen = new Tag("#unded");
 		Tag tagEleven = new Tag("#magical");
 		Tag tagTwelve = new Tag("#golden");
+		
+		tagOne = tagRepo.save(tagOne);
+		tagTwo = tagRepo.save(tagTwo);
+		tagThree = tagRepo.save(tagThree);
+		tagFour = tagRepo.save(tagFour);
+		tagFive = tagRepo.save(tagFive);
+		tagSix = tagRepo.save(tagSix);
+		tagSeven = tagRepo.save(tagSeven);
+		tagEight = tagRepo.save(tagEight);
+		tagNine = tagRepo.save(tagNine);
+		tagTen = tagRepo.save(tagTen);
+		tagEleven = tagRepo.save(tagEleven);
+		tagTwelve = tagRepo.save(tagTwelve);
 		
 		
 		Collection<Tag> trickyTags = new ArrayList<>();
@@ -105,8 +124,6 @@ public class DoggoPopulator implements CommandLineRunner {
 		doggoSeven = doggoRepo.save(doggoSeven);
 		doggoEight = doggoRepo.save(doggoEight);
 		doggoNine = doggoRepo.save(doggoNine);
-		
-
 		
 
 	}

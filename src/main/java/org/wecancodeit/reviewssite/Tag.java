@@ -24,13 +24,15 @@ public class Tag {
 	@Id @GeneratedValue
 	private Long id;
 	private String tName;
+	
+	@ManyToMany(mappedBy = "tags")
 	private Collection <Doggo> doggos;
 	
 //************* Many to Many	
-	@ManyToMany (mappedBy = "tags")
-	public Collection<Doggo> getDoggos() {
-		return doggos;
-	}
+//	@ManyToMany (mappedBy = "tags")
+//	public Collection<Doggo> getDoggos() {
+//		return doggos;
+//	}
 
 	
 	
