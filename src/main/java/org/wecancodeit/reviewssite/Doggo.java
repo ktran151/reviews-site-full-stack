@@ -25,15 +25,17 @@ public class Doggo {
 
 	@ManyToOne
 	private Category category;
-	
-	@OneToMany(mappedBy = "Comment")
+
+	@OneToMany(mappedBy = "comment")
 	private Collection<Comment> comment;
-	
+
 	private Collection<Tag> tags;
-	
+
 	@ManyToMany
-	@JoinTable(name="DOG_TAGS")
-	private Collection<Tag> getTags() {return tags;}
+	@JoinTable(name = "DOG_TAGS")
+	private Collection<Tag> getTags() {
+		return tags;
+	}
 
 	public Doggo() {
 	}
@@ -65,5 +67,5 @@ public class Doggo {
 	public String getReview() {
 		return review;
 	}
-	
+
 }
