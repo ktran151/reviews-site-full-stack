@@ -26,10 +26,13 @@ public class Tag {
 	private String tName;
 	private Collection <Doggo> doggos;
 	
-	@ManyToMany (mappedBy = "Doggo")
+//************* Many to Many	
+	@ManyToMany (mappedBy = "tags")
 	public Collection<Doggo> getDoggos() {
 		return doggos;
 	}
+
+	
 	
 	public String gettName() {
 		return tName;

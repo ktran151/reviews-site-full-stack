@@ -1,5 +1,4 @@
 package org.wecancodeit.reviewssite;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +8,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Comment {
 
-	
 	public Comment() {
 	}
 
@@ -21,6 +19,9 @@ public class Comment {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@ManyToOne
+	private Doggo doggo;
 
 	public Long getId() {
 		return id;
@@ -36,8 +37,5 @@ public class Comment {
 
 	@Lob
 	private String text;
-
-	@ManyToOne
-	private Doggo doggo;
 
 }
