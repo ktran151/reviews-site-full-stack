@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -26,15 +27,21 @@ public class Doggo {
 	@ManyToOne
 	private Category category;
 
-	@OneToMany(mappedBy = "comment")
+	
+	@OneToMany(mappedBy="doggo")
+
 	private Collection<Comment> comment;
 
 	private Collection<Tag> tags;
 
+	
+	
+//******* ManyToMany	
 	@ManyToMany
-	@JoinTable(name = "DOG_TAGS")
-	private Collection<Tag> getTags() {
-		return tags;
+	@JoinTable(name="DOG_TAGS", joinColumns = { @JoinColumn(name = "DOG_ID")},
+		inverseJoinColumns = {@JoinColumn(name="TAG_ID")})
+		private Collection<Tag> getTags() {
+			return tags;
 	}
 
 	public Doggo() {
