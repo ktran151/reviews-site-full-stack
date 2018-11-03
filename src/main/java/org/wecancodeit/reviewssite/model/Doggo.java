@@ -1,5 +1,6 @@
-package org.wecancodeit.reviewssite;
+package org.wecancodeit.reviewssite.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -19,36 +20,27 @@ public class Doggo {
 
 	private String title;
 	private String url;
-	
+
 	@Lob
 	private String review;
 
 	@ManyToOne
 	private Category category;
 
-	
-	@OneToMany(mappedBy="doggo")
-
+	@OneToMany(mappedBy = "doggo")
 	private Collection<Comment> comment;
 
-	
 	@ManyToMany
-
-	private Collection<Tag> tags;
-
-	
-	
-//******* ManyToMany	
+	private Collection<Tag> tags = new ArrayList<>();
 
 	public Doggo() {
 	}
 
-	public Doggo(String title, String url, Category category, String review, Collection<Tag> tags) {
+	public Doggo(String title, String url, Category category, String review) {
 		this.title = title;
 		this.url = url;
 		this.category = category;
 		this.review = review;
-		this.tags = tags;
 	}
 
 	public Long getId() {
@@ -71,4 +63,11 @@ public class Doggo {
 		return review;
 	}
 
+	public void addTag(Tag tag) {
+		tags.add(tag);
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
 }
