@@ -1,11 +1,14 @@
 package org.wecancodeit.reviewssite.model;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Tag {
@@ -14,8 +17,9 @@ public class Tag {
 	Long id;
 	String tagName;
 	
+	@JsonIgnore
 	@ManyToMany
-	private Collection<Doggo> doggos;
+	private Collection<Doggo> doggos = new HashSet<>();
 
 	public Tag() {}
 	

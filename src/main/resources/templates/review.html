@@ -23,12 +23,8 @@
 			<figcaption th:text="${doggo.review}"></figcaption>
 		</figure>
 		
-		<!--form th:action="|../doggos/${doggo.id}/add-tag|" method="post">
-			<label>New Tag: <input type="text" name="tag" /></label>
-			<input type="submit" value="Submit" />
-		</form-->
 		<article class="tagMaker">
-			<label>New Tag: <input id="tagInput" type="text" name="tag" /></label>
+			<label>New Tag: <input id="tagInput" type="text" name="tagName" /></label>
 			<button>Add Tag</button>
 		</article>
 		

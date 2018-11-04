@@ -28,7 +28,7 @@ public class Doggo {
 	@OneToMany(mappedBy = "doggo")
 	private Collection<Comment> comments;
 	
-	@ManyToMany(mappedBy = "doggos")
+	@ManyToMany
 	private Collection<Tag> tags;
 
 	public Doggo() {
@@ -39,6 +39,10 @@ public class Doggo {
 		this.url = url;
 		this.category = category;
 		this.review = review;
+	}
+	
+	public void addTag(Tag tag) {
+		tags.add(tag);
 	}
 
 	public Collection<Tag> getTags() {

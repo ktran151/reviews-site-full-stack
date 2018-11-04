@@ -3,7 +3,6 @@ package org.wecancodeit.reviewssite.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,15 +50,23 @@ public class ApiController {
 //		return null;
 //	}
 	
-	@PostMapping("/api/reviews/{id}/tags/add")
+	@PostMapping("/api/doggos/{id}/tags/add")
 	public String addTag(@PathVariable(value = "id") Long id, @RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String newTag = json.getString("tagName");
+		System.out.println(newTag);
 		if(tagRepo.findByTagNameIgnoreCase(newTag)!=null) {
+			//adds doggo to tag
 			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
+			//adds tag to doggo
+			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
 		} else {
+			//creates tag
 			tagRepo.save(new Tag(newTag));
+			//adds doggo to tag
 			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
+			//adds tag to doggo
+			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
 		}
 		return null;
 	}
