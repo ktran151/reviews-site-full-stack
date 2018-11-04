@@ -1,8 +1,5 @@
 package org.wecancodeit.reviewssite;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
