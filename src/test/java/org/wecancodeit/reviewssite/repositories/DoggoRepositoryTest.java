@@ -19,19 +19,19 @@ import org.wecancodeit.reviewssite.repositories.DoggoRepository;
 public class DoggoRepositoryTest {
 	@Resource
 	DoggoRepository doggoRepo;
-	
+
 	@Resource
 	CategoryRepository categoryRepo;
-	
+
 	@Test
 	public void shouldContainDoggo() {
 		Category categoryOne = categoryRepo.save(new Category(""));
-		Doggo doggoOne = doggoRepo.save(new Doggo("Tricky", "tricky.gif", categoryOne,
-				"Sneaky boy will fake pets to steal treats (3/10)",null));
-		
+		Doggo doggoOne = doggoRepo.save(
+				new Doggo("Tricky", "tricky.gif", categoryOne, "Sneaky boy will fake pets to steal treats (3/10)"));
+
 		Iterable<Doggo> result = doggoRepo.findAll();
-		
+
 		assertThat(result, hasItems(doggoOne));
-		
+
 	}
 }
