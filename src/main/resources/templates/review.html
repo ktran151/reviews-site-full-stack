@@ -21,13 +21,20 @@
 			<a th:href="|../categories/${doggo.category.id}|"><span th:text="${doggo.category.name}">category</span></a>
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
+			<div class="tag-section">
+				<form>
+					<label>New Tag: <input id="tagInput" type="text" name="tagName" /></label>
+					<button>Add Tag</button>
+				</form>	
+			</div>
 		</figure>
 		<section class="comment-section">
 			<h3>Comments</h3>
 			<form action="/comment" method="post">
-  <textarea name="message" rows="8" cols="50">Enter your comment here!</textarea>
-  <br>
-  <input type="submit">
+			  <textarea name="message" rows="8" cols="50">Enter your comment here!</textarea>
+			  <br>
+			  <input type="submit">
+			</form>
 		</section>
 	</main>
 	<footer>
