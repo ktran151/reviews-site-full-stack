@@ -72,7 +72,7 @@ public class DoggoPopulator implements CommandLineRunner {
 				"Ready to inspect and sniff out diagnosis (9/10)");
 		Doggo doggoFive = new Doggo("Happy Dach", "happyDach.jpg", categoryTwo,
 				"Just wants you to know you're his whole world (12/10)");
-		Doggo doggoSix = new Doggo("Fluffy", "fluffy.jpg", categoryThree,
+		Doggo doggoSix = new Doggo("Fluffy", "fluffy.gif", categoryThree,
 				"Really fluffy boy, fluffiest boy on the farm (9/10)");
 		Doggo doggoSeven = new Doggo("Spooky", "spooky.jpg", categoryOne, "Real scary boy, many frights had (4/10)");
 		Doggo doggoEight = new Doggo("Wizard Boy", "wizard.gif", categoryOne,
