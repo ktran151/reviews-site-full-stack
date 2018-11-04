@@ -5,5 +5,4 @@ import org.wecancodeit.reviewssite.model.Doggo;
 
 public interface DoggoRepository extends CrudRepository<Doggo, Long> {
 
-	Doggo findById(Long id);
 }
