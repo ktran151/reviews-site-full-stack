@@ -1,1 +1,19 @@
-tag.html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="|${tag.tName}|">Tag</title>
+	<link rel="stylesheet" type="text/css" href="/css/category-layout.css">
+	<link rel="stylesheet" type="text/css" href="/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+</head>
+<body>
+	<div class="container"></div>
+	<header>
+		<h1 th:text="|${tag.tName}|">Tag</h1>
+	</header>
+	<ul>
+		<li th:each="doggo : ${tag.doggos}" th:text="${doggo.title}"></li>
+	</ul>
+
+</body>
+</html>
