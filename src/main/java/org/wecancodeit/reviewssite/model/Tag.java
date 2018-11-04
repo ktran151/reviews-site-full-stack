@@ -29,6 +29,7 @@ public class Tag {
 	
 	public void addDoggo(Doggo newDoggo) {
 		doggos.add(newDoggo);
+		System.out.println("fuck ya chicken strips");
 	}
 
 	public Long getId() {

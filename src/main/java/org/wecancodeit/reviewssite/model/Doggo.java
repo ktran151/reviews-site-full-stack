@@ -1,6 +1,7 @@
 package org.wecancodeit.reviewssite.model;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +29,8 @@ public class Doggo {
 	@OneToMany(mappedBy = "doggo")
 	private Collection<Comment> comments;
 	
-	@ManyToMany
-	private Collection<Tag> tags;
+	@ManyToMany(mappedBy = "doggos")
+	private Collection<Tag> tags = new HashSet<>();
 
 	public Doggo() {
 	}
@@ -43,6 +44,7 @@ public class Doggo {
 	
 	public void addTag(Tag tag) {
 		tags.add(tag);
+		System.out.println("heyyyy");
 	}
 
 	public Collection<Tag> getTags() {

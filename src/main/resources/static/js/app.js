@@ -17,7 +17,7 @@ const addTagButton = document.querySelector('button')
 
 addTagButton.addEventListener('click', () => {
 	fetch(`../api/doggos/${window.location.pathname.split('/')[2]}/tags/add`, {
-		method: 'post',
+		method:'post',
 		body: JSON.stringify({
 			tagName: input.value,
 		}),

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.wecancodeit.reviewssite.model.Doggo;
 import org.wecancodeit.reviewssite.model.Tag;
 import org.wecancodeit.reviewssite.repository.DoggoRepository;
 import org.wecancodeit.reviewssite.repository.TagRepository;
@@ -26,29 +27,15 @@ public class ApiController {
 		return tagRepo.findByTagNameIgnoreCase(tagName);
 	}
 	
-//	@PostMapping("api/doggos/{id}/add-tag")
-//	public Iterable<Tag> addComment(@PathVariable(value = "id") Long id, String tagName, Model model) {
-//		if(tagRepo.findByTagNameIgnoreCase(tagName)!=null) {
-//			tagRepo.findByTagNameIgnoreCase(tagName).addDoggo(reviewRepo.findById(id).get());
-//		} else {
-//			tagRepo.save(new Tag(tagName));
-//			tagRepo.findByTagNameIgnoreCase(tagName).addDoggo(reviewRepo.findById(id).get());
-//		}
-//		return tagRepo.findAll();
-//	}
+	@GetMapping("/api/tags")
+	public Iterable<Tag> getTags() {
+		return tagRepo.findAll();
+	}
 	
-//	@PostMapping("/api/doggos/{id}/tags/add")
-//	public String addTag(@PathVariable(value = "id") Long id, @RequestBody String body) {
-//		
-//		if(tagRepo.findByTagNameIgnoreCase(tagName)!=null) {
-//			tagRepo.findByTagNameIgnoreCase(tagName).addDoggo(reviewRepo.findById(id).get());
-//		} else {
-//			tagRepo.save(new Tag(tagName));
-//			tagRepo.findByTagNameIgnoreCase(tagName).addDoggo(reviewRepo.findById(id).get());
-//		}
-//		System.out.println(body);
-//		return null;
-//	}
+	@GetMapping("/api/doggos/{id}")
+	public Doggo getDoggo(@PathVariable(value = "id") Long id) {
+		return reviewRepo.findById(id).get();
+	}
 	
 	@PostMapping("/api/doggos/{id}/tags/add")
 	public String addTag(@PathVariable(value = "id") Long id, @RequestBody String body) throws JSONException {
