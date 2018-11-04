@@ -22,10 +22,10 @@
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
 		</figure>
-		<section>
+		<section class="comment-section">
 			<h3>Comments</h3>
 			<form action="/comment" method="post">
-  <textarea name="message" rows="8" cols="50">The cat was playing in the garden.</textarea>
+  <textarea name="message" rows="8" cols="50">Enter your comment here!</textarea>
   <br>
   <input type="submit">
 		</section>

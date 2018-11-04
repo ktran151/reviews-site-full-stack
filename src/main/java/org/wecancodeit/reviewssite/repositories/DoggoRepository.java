@@ -5,5 +5,5 @@ import org.wecancodeit.reviewssite.model.Doggo;
 
 public interface DoggoRepository extends CrudRepository<Doggo, Long> {
 
-	Doggo findByTitleIgnoreCase(String title);
+	Doggo findById(Long id);
 }

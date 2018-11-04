@@ -1,6 +1,7 @@
 package org.wecancodeit.reviewssite.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class ApiController {
 	}
 
 	@GetMapping("/api/doggo/{id}")
-	public Doggo getDoggo(@PathVariable(value = "id") Long id) {
+	public Doggo getDoggo(@PathVariable(value = "id") Long id, Model model) {
 		return doggoRepo.findById(id);
 	}
 
