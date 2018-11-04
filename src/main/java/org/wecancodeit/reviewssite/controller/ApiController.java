@@ -1,5 +1,7 @@
 package org.wecancodeit.reviewssite.controller;
 
+import java.util.Collection;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,24 +39,40 @@ public class ApiController {
 		return reviewRepo.findById(id).get();
 	}
 	
+//	@PostMapping("/api/doggos/{id}/tags/add")
+//	public String addTag(@PathVariable(value = "id") Long id, @RequestBody String body) throws JSONException {
+//		JSONObject json = new JSONObject(body);
+//		String newTag = json.getString("tagName");
+//		System.out.println(newTag);
+//		if(tagRepo.findByTagNameIgnoreCase(newTag)!=null) {
+//			//adds doggo to tag
+//			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
+//			//adds tag to doggo
+//			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
+//		} else {
+//			//creates tag
+//			tagRepo.save(new Tag(newTag));
+//			//adds doggo to tag
+//			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
+//			//adds tag to doggo
+//			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
+//		}
+//		return null;
+//	}
+	
 	@PostMapping("/api/doggos/{id}/tags/add")
-	public String addTag(@PathVariable(value = "id") Long id, @RequestBody String body) throws JSONException {
+	public Collection<Tag> addTag(@PathVariable(value = "id") Long id, @RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String newTag = json.getString("tagName");
-		System.out.println(newTag);
-		if(tagRepo.findByTagNameIgnoreCase(newTag)!=null) {
-			//adds doggo to tag
-			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
-			//adds tag to doggo
-			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
-		} else {
-			//creates tag
+
+		if(tagRepo.findByTagNameIgnoreCase(newTag) == null) {
 			tagRepo.save(new Tag(newTag));
-			//adds doggo to tag
-			tagRepo.findByTagNameIgnoreCase(newTag).addDoggo(reviewRepo.findById(id).get());
-			//adds tag to doggo
-			reviewRepo.findById(id).get().addTag(tagRepo.findByTagNameIgnoreCase(newTag));
 		}
-		return null;
+
+		Doggo doggoToUpdate = reviewRepo.findById(id).get();
+		doggoToUpdate.addTag(tagRepo.findByTagNameIgnoreCase(newTag));
+		Doggo updatedDoggo = reviewRepo.save(doggoToUpdate);
+
+		return updatedDoggo.getTags();
 	}
 }

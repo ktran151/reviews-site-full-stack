@@ -29,7 +29,7 @@ public class Doggo {
 	@OneToMany(mappedBy = "doggo")
 	private Collection<Comment> comments;
 	
-	@ManyToMany(mappedBy = "doggos")
+	@ManyToMany
 	private Collection<Tag> tags = new HashSet<>();
 
 	public Doggo() {

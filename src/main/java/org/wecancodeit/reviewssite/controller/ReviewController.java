@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.wecancodeit.reviewssite.model.Comment;
 import org.wecancodeit.reviewssite.repository.CommentRepository;
 import org.wecancodeit.reviewssite.repository.DoggoRepository;
+import org.wecancodeit.reviewssite.repository.TagRepository;
 
 @Controller
 public class ReviewController {
@@ -18,6 +19,9 @@ public class ReviewController {
 	
 	@Autowired
 	private CommentRepository commentRepo;
+	
+	@Autowired
+	private TagRepository tagRepo;
 
 	@GetMapping("/")
 	public String getHome() {
@@ -34,6 +38,16 @@ public class ReviewController {
 	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("doggo", reviewRepo.findById(id).get());
 		return "review";
+	}
+	
+	@GetMapping("/tags")
+	public String getTags() {
+		return "tags";
+	}
+
+	@GetMapping("tags/{id}")
+	public String getTag(@PathVariable(value = "id") Long id) {
+		return "tag";
 	}
 	
 	@PostMapping("doggos/{id}/add-comment")
