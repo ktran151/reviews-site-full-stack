@@ -52,4 +52,14 @@ public class ReviewControllerTest {
 	public void shouldReturnDoggosTemplate() throws Exception {
 		mockMvc.perform(get("/doggos")).andExpect(view().name("reviews"));
 	}
+
+	@Test
+	public void shouldGoToTag() throws Exception {
+		mockMvc.perform(get("/tags/#furry")).andExpect(status().isOk());
+	}
+
+	@Test
+	public void shouldGoToTagTemplate() throws Exception {
+		mockMvc.perform(get("/tags/#furry")).andExpect(view().name("tag"));
+	}
 }
