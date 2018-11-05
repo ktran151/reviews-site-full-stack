@@ -1,6 +1,6 @@
 package org.wecancodeit.reviewssite.model;
 
-//*Test github Update of Tag Class with jrbranch01
+
 
 import java.util.Collection;
 
@@ -41,5 +41,9 @@ public class Tag {
 	public String getTagName() {
 		return tagName;
 	}
-
+	//*Test github Update of Tag Class with jrbranch01
+	public void thisIsABogusMethod() {
+		//* This method is totally unnecessary
+	}
+	
 }
