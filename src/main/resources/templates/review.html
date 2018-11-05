@@ -41,8 +41,9 @@
 						<p th:text="${comment.text}"></p>
 					</li>
 				</ul>
-			<form action="./add-comment" method="post">
+			<form th:action="@{|doggos/${doggo.id}/add-comment|}" method="post">
 			  <textarea name="message" rows="8" cols="50">Enter your comment here!</textarea>
+			  <input type="hidden" th:value="${doggo.id}" name="id" />
 			  <br>
 			  <input type="submit">
 			</form>

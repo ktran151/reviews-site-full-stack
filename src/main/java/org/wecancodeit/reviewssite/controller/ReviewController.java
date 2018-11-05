@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.wecancodeit.reviewssite.model.Category;
 import org.wecancodeit.reviewssite.model.Comment;
 import org.wecancodeit.reviewssite.model.Doggo;
+import org.wecancodeit.reviewssite.model.Tag;
 import org.wecancodeit.reviewssite.repositories.CategoryRepository;
 import org.wecancodeit.reviewssite.repositories.CommentRepository;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
@@ -72,5 +73,18 @@ public class ReviewController {
 	public String addComment(@PathVariable(value = "id") Long id, String comment, Model model) {
 		commentRepo.save(new Comment(comment, reviewRepo.findById(id).get()));
 		return "redirect:/doggos/" + id;
+	}
+
+	@GetMapping("/api/category/{id}")
+	public Category getCategory(@PathVariable(value = "id") Long id) {
+		return categoryRepo.findById(id).get();
+	}
+
+	@PostMapping("/reviews/{id}/tag")
+	public String addTag(@PathVariable(value = "id") Long id, String tagName, Model model) {
+		Tag tag = new Tag(tagName);
+		reviewRepo.findById(id).get().addTag(tag);
+		tagRepo.save(tag);
+		return "redirect:/doggos/{id}";
 	}
 }

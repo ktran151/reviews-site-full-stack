@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.wecancodeit.reviewssite.model.Doggo;
+import org.wecancodeit.reviewssite.model.Tag;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
 import org.wecancodeit.reviewssite.repositories.TagRepository;
 
@@ -27,6 +28,11 @@ public class ApiController {
 	@GetMapping("/api/doggos/{id}")
 	public Doggo getDoggo(@PathVariable(value = "id") Long id) {
 		return doggoRepo.findById(id).get();
+	}
+
+	@GetMapping("/api/tags/{name}")
+	public Tag getTag(@PathVariable(value = "name") String tagName) {
+		return tagRepo.findByTagNameIgnoreCase(tagName);
 	}
 
 	@PostMapping("/api/doggo/{id}/tags/add")
