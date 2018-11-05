@@ -35,7 +35,6 @@ public class ReviewController {
 	@GetMapping("doggos/{id}")
 	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("doggo", reviewRepo.findById(id).get());
-		model.addAttribute("category", reviewRepo.findById(id).get());
 		return "review";
 	}
 
