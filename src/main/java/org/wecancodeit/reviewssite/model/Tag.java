@@ -35,7 +35,7 @@ public class Tag {
 //		return doggos;
 //	}
 
-	public String gettName() {
+	public String getTagName() {
 		return tagName;
 	}
 

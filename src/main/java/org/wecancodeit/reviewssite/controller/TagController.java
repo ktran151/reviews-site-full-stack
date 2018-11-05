@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.reviewssite.repositories.TagRepository;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/tags")
 public class TagController {
 
 	@Resource
-	private TagRepository categoryRepo;
+	private TagRepository tagRepo;
 
 	@GetMapping("")
-	public String getHome(Model model) {
-		model.addAttribute("categories", categoryRepo.findAll());
-		return "Tags";
+	public String getTags(Model model) {
+		model.addAttribute("tag", tagRepo.findAll());
+		return "tags";
 	}
 
 	@GetMapping("/{id}")
-	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
-		model.addAttribute("category", categoryRepo.findById(id).get());
+	public String getTag(@PathVariable(value = "tagName") String tagName, Model model) {
+		model.addAttribute("tag", tagRepo.findByTagNameIgnoreCase(tagName));
 		return "tag";
 	}
 }
