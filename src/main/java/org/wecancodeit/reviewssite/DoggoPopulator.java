@@ -36,18 +36,18 @@ public class DoggoPopulator implements CommandLineRunner {
 		categoryTwo = categoryRepo.save(categoryTwo);
 		categoryThree = categoryRepo.save(categoryThree);
 
-		Tag tagOne = new Tag("#hungry");
-		Tag tagTwo = new Tag("#tricky");
-		Tag tagThree = new Tag("#bear");
-		Tag tagFour = new Tag("#furry");
-		Tag tagFive = new Tag("#dancing");
-		Tag tagSix = new Tag("#pomeranian");
-		Tag tagSeven = new Tag("#medical");
-		Tag tagEight = new Tag("#professional");
-		Tag tagNine = new Tag("#happy");
-		Tag tagTen = new Tag("#unded");
-		Tag tagEleven = new Tag("#magical");
-		Tag tagTwelve = new Tag("#golden");
+		Tag tagOne = new Tag("hungry");
+		Tag tagTwo = new Tag("tricky");
+		Tag tagThree = new Tag("bear");
+		Tag tagFour = new Tag("furry");
+		Tag tagFive = new Tag("dancing");
+		Tag tagSix = new Tag("pomeranian");
+		Tag tagSeven = new Tag("medical");
+		Tag tagEight = new Tag("professional");
+		Tag tagNine = new Tag("happy");
+		Tag tagTen = new Tag("unded");
+		Tag tagEleven = new Tag("magical");
+		Tag tagTwelve = new Tag("golden");
 
 		tagOne = tagRepo.save(tagOne);
 		tagTwo = tagRepo.save(tagTwo);

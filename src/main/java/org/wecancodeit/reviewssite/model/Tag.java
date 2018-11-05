@@ -29,11 +29,9 @@ public class Tag {
 	@ManyToMany(mappedBy = "tags")
 	private Collection<Doggo> doggos;
 
-//************* Many to Many	
-//	@ManyToMany (mappedBy = "tags")
-//	public Collection<Doggo> getDoggos() {
-//		return doggos;
-//	}
+	public Collection<Doggo> getDoggos() {
+		return doggos;
+	}
 
 	public String getTagName() {
 		return tagName;

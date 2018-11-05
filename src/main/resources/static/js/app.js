@@ -27,7 +27,7 @@ console.log(id)
 //	})
 
 const input = document.querySelector('input')
-const addTagButton = document.querySelector('button')
+const addTagButton = document.querySelector('.tagButton')
 
 addTagButton.addEventListener('click', () => {
 	fetch('/api/doggos/${id}/tags/add', {
@@ -37,5 +37,5 @@ addTagButton.addEventListener('click', () => {
 		}),
 	})
 		.then(res => res.json())
-		.then(data => console.log)
+		.then(data => console.log(data))
 })

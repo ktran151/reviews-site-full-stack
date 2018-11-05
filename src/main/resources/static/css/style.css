@@ -25,3 +25,7 @@ header li{
 	color: white;
 	list-style-type: none;
 }
+
+.tags, .comments{
+	list-style: none;
+}
