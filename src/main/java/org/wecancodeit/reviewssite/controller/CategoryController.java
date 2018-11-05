@@ -17,7 +17,7 @@ public class CategoryController {
 	private CategoryRepository categoryRepo;
 
 	@GetMapping("")
-	public String getHome(Model model) {
+	public String getCatecories(Model model) {
 		model.addAttribute("categories", categoryRepo.findAll());
 		return "categories/categories";
 	}
