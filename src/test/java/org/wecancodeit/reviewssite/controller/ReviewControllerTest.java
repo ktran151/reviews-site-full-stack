@@ -7,10 +7,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.wecancodeit.reviewssite.controller.ReviewController;
+import org.wecancodeit.reviewssite.repositories.TagRepository;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ReviewController.class)

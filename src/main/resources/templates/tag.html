@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:text="|${tag.tagName}|">Tag</title>
-	<link rel="stylesheet" type="text/css" href="/css/category-layout.css">
+	<title th:text="${tag.tagName}">Tag</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/layout.css">
 </head>
 <body>
 	<div class="container"></div>
 	<header>
-		<h1 th:text="|${tag.tagName}|">Tag</h1>
+		<h1 th:text="${tag.tagName}">Tag</h1>
 	</header>
 	<ul>
-		<li th:each="doggo : ${tag.doggos}" th:text="${doggo.title}"></li>
+		<li th:each="doggo : ${tag.doggos}" ><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}"></a></li>
 	</ul>
 
 </body>

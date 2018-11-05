@@ -22,27 +22,28 @@
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
 			<div class="tag-section">
-				<ul>
+				<ul class="tags">
 					<li th:each="tag : ${doggo.tags}">
 						<a th:href="|/tags/${tag.tagName}|" th:text="${tag.tagName}">Tag</a>
 					</li>
 				</ul>
-				<form action="add-tag" method="post">
+				<form action="./add-tag" method="post">
 					<label>New Tag: <input id="tagInput" type="text" name="tagName" /></label>
-					<button>Add Tag</button>
+					<button class="tagButton">Add Tag</button>
 				</form>
 			</div>
 		</figure>
 		<section class="comment-section">
-			<!--  <h3>Comments</h3>
+			<h3>Comments</h3>
 				<ul id="comments">
 					<li th:each="comment : ${doggo.comments}">
 						<h3>Anonymous</h3>
 						<p th:text="${comment.text}"></p>
 					</li>
-				</ul>-->
-			<form action="/add-comment" method="post">
+				</ul>
+			<form th:action="@{|doggos/${doggo.id}/add-comment|}" method="post">
 			  <textarea name="message" rows="8" cols="50">Enter your comment here!</textarea>
+			  <input type="hidden" th:value="${doggo.id}" name="id" />
 			  <br>
 			  <input type="submit">
 			</form>

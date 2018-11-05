@@ -28,7 +28,7 @@ public class Doggo {
 	private Category category;
 
 	@OneToMany(mappedBy = "doggo")
-	private Collection<Comment> comment;
+	private Collection<Comment> comments;
 
 	@ManyToMany
 	private Collection<Tag> tags = new ArrayList<>();
@@ -69,5 +69,9 @@ public class Doggo {
 
 	public Collection<Tag> getTags() {
 		return tags;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 }
