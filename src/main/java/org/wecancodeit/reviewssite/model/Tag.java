@@ -1,5 +1,7 @@
 package org.wecancodeit.reviewssite.model;
 
+//*Test github Update of Tag Class with jrbranch01
+
 import java.util.Collection;
 
 import javax.persistence.Entity;
