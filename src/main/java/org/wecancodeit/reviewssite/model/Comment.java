@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Comment {
 	@Id
@@ -15,6 +17,7 @@ public class Comment {
 	@Lob
 	private String text;
 
+	@JsonIgnore
 	@ManyToOne
 	private Doggo doggo;
 

@@ -19,6 +19,8 @@
 	<main>
 		<ul>
 			<li th:each="doggo : ${doggos}"><a th:href="|/doggos/${doggo.id}|" th:text="|${doggo.title} Boy|">Doggos</a></li>
+			<br>
+			<li><a href="doggos/add-doggo">Add a new Doggo Boy</a></li>
 		</ul>
 	</main>
 	<footer>
