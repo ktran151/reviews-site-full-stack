@@ -14,26 +14,28 @@ console.log(id)
 //		body.innerHTML += img
 //	})
 
-//fetch(`api/doggos/${id}/tags`)
-//	.then(res => res.json())
-//	.then(tags => {
-//		const body = document.body
-//		const tagList = document.createElement('ul')
-//		tags.forEach(tag => {
-//			let item = `<li>${tag.tagName}</li>`
-//			tagList.appendChild(item)
-//		})
-//		body.innerHTML += tagList
-//	})
+fetch(`api/doggos/${id}`)
+	.then(res => res.json())
+	.then(data => {
+		console.log(`${data.title}`)
+		const tagSection = document.querySelector('#tags')
+		const tagList = `<ul id="tags"></ul>`
+		data.tags.forEach(tag => {
+			let item = `<li><a href="|/tags/${tag.tagName}|">${tag.tagName}</a></li>`
+			tagList.appendChild(item)
+		})
+		tagSection.appendChild(tagList)
+	})
 
-const input = document.querySelector('input')
+const input = document.querySelector('#tagInput')
 const addTagButton = document.querySelector('.tagButton')
 
 addTagButton.addEventListener('click', () => {
-	fetch('/api/doggos/${id}/tags/add', {
+	fetch(`/api/doggos/${id}/tags/add`, {
 		method: 'post',
 		body: JSON.stringify({
 			tagName: input.value,
+			
 		}),
 	})
 		.then(res => res.json())

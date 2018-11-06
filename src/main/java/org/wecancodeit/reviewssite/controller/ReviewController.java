@@ -25,7 +25,7 @@ public class ReviewController {
 	private DoggoRepository reviewRepo;
 
 	@Resource
-	CategoryRepository categoryRepo;
+	private CategoryRepository categoryRepo;
 
 	@Resource
 	private TagRepository tagRepo;
@@ -33,7 +33,7 @@ public class ReviewController {
 	@Resource
 	private CommentRepository commentRepo;
 
-	@RequestMapping(value = "/", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "/")
 	public String getHome() {
 		return "index";
 	}
@@ -70,14 +70,9 @@ public class ReviewController {
 	}
 
 	@PostMapping("doggos/{id}/add-comment")
-	public String addComment(@PathVariable(value = "id") Long id, String comment, Model model) {
-		commentRepo.save(new Comment(comment, reviewRepo.findById(id).get()));
+	public String addComment(@PathVariable(value = "id") Long id, String message, Model model) {
+		commentRepo.save(new Comment(message, reviewRepo.findById(id).get()));
 		return "redirect:/doggos/" + id;
-	}
-
-	@GetMapping("/api/category/{id}")
-	public Category getCategory(@PathVariable(value = "id") Long id) {
-		return categoryRepo.findById(id).get();
 	}
 
 	@PostMapping("/reviews/{id}/tag")

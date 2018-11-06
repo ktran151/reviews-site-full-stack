@@ -26,6 +26,24 @@ header li{
 	list-style-type: none;
 }
 
-.tags, .comments{
+#tags {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	list-style: none;
+	padding: 1rem;
+}
+	#tags li {
+	background-color: lightBlue;
+	padding: 0.5rem;
+	border-radius: 15px;
+	max-width: 150px;
+	}
+
+.comments {
 	list-style: none;
 }
+
+	.comments li{
+		padding: 1rem;
+	}
