@@ -6,37 +6,41 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 public class Comment {
 	@Id
 	@GeneratedValue
-	Long Id;
-	String userName;
+	private Long id;
+
 	@Lob
-	String comment;
-	
+	private String text;
+
+	@JsonIgnore
 	@ManyToOne
 	private Doggo doggo;
-	
-	public Comment() {}
-	
-	public Comment(String userName, String comment, Doggo doggo) {
-		this.userName = userName;
-		this.comment = comment;
+
+	public Comment() {
+	}
+
+	public Comment(String text, Doggo doggo) {
+		this.text = text;
+
 		this.doggo = doggo;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getText() {
+		return text;
 	}
 
-	public String getComment() {
-		return comment;
+	public Doggo getDoggo() {
+		return doggo;
 	}
-	
-	
 }

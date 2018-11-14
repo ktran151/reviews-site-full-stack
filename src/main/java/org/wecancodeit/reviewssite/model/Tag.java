@@ -1,7 +1,6 @@
 package org.wecancodeit.reviewssite.model;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,33 +11,29 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Tag {
-	@Id
-	@GeneratedValue
-	Long id;
-	String tagName;
-	
-	@JsonIgnore
-	@ManyToMany
-	private Collection<Doggo> doggos = new HashSet<>();
 
-	public Tag() {}
-	
+	public Tag() {
+	}
+
 	public Tag(String tagName) {
 		this.tagName = tagName;
 	}
-	
-	public void addDoggo(Doggo newDoggo) {
-		doggos.add(newDoggo);
-		System.out.println("fuck ya chicken strips");
-	}
 
-	public Long getId() {
-		return id;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String tagName;
+
+	@JsonIgnore
+	@ManyToMany(mappedBy = "tags")
+	private Collection<Doggo> doggos;
+
 	}
 
 	public String getTagName() {
 		return tagName;
 	}
+
 
 	public Collection<Doggo> getDoggos() {
 		return doggos;

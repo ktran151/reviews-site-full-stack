@@ -52,3 +52,12 @@ main figure img{
 	max-width: 100%;
 	margin: auto;
 }
+
+#addDoggoForm {
+	display: flex;
+	flex-direction: column;
+}
+
+#addDoggoForm label {
+	padding: 1rem;
+}

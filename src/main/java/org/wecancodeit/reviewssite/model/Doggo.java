@@ -1,7 +1,9 @@
 package org.wecancodeit.reviewssite.model;
 
+
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,17 +22,19 @@ public class Doggo {
 
 	private String title;
 	private String url;
+
 	@Lob
 	private String review;
 
 	@ManyToOne
 	private Category category;
-	
+
 	@OneToMany(mappedBy = "doggo")
 	private Collection<Comment> comments;
-	
+
 	@ManyToMany
-	private Collection<Tag> tags = new HashSet<>();
+	private Collection<Tag> tags = new ArrayList<>();
+
 
 	public Doggo() {
 	}
@@ -40,15 +44,6 @@ public class Doggo {
 		this.url = url;
 		this.category = category;
 		this.review = review;
-	}
-	
-	public void addTag(Tag tag) {
-		tags.add(tag);
-		System.out.println("heyyyy");
-	}
-
-	public Collection<Tag> getTags() {
-		return tags;
 	}
 
 	public Long getId() {
@@ -70,8 +65,17 @@ public class Doggo {
 	public String getReview() {
 		return review;
 	}
-	
-	public Collection<Comment> getComments(){
+  
+	public void addTag(Tag tag) {
+		tags.add(tag);
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+
+	public Collection<Comment> getComments() {
+
 		return comments;
 	}
 }

@@ -21,8 +21,6 @@ public class Category {
 	@JsonIgnore
 	@OneToMany(mappedBy = "category")
 	private Collection<Doggo> doggos;
-	
-	public Category() {}
 
 	public Category(String name) {
 		this.name = name;

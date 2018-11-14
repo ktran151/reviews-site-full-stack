@@ -21,33 +21,39 @@
 			<a th:href="|../categories/${doggo.category.id}|"><span th:text="${doggo.category.name}">category</span></a>
 			<img th:src="@{|/images/${doggo.url}|}">
 			<figcaption th:text="${doggo.review}"></figcaption>
+			<div class="tag-section">
+				<ul id="tags">
+					<li th:each="tag : ${doggo.tags}">
+						<a th:href="|/tags/${tag.tagName}|" th:text="${tag.tagName}">Tag</a>
+					</li>
+				</ul>
+				<form th:action="@{|./${doggo.id}/add-tag|}" method="post">
+					<label>New Tag: <input id="tagInput" type="text" name="tagName" /></label>
+					<button class="tagButton">Add Tag</button>
+				</form>
+			</div>
 		</figure>
-		
-		<article class="tagDisplay"></article>
-		
-		<article class="tagMaker">
-			<label>New Tag: <input id="tagInput" type="text" name="tagName" /></label>
-			<button>Add Tag</button>
-		</article>
-		
-		<form th:action="|../doggos/${doggo.id}/add-comment|" method="post">
-			<label>Username: <input type="text" name="userName" /></label>
-			<label>Comment: <input type="text" name="comment" /></label>
-			<input type="submit" value="Submit" />
-		</form>
-		
-		<ul id="commentsSection">
-			<li th:each="userComment : ${doggo.comments}">
-				<h3 th:text="${userComment.userName}"></h3>
-				<p th:text="${userComment.comment}"></p>
-			</li>
-		</ul>
-		<script src="/js/app.js"></script>
+		<section class="comment-section">
+			<h3>Comments</h3>
+				<ul class="comments">
+					<li th:each="comment : ${doggo.comments}">
+						<h5>Anonymous</h5>
+						<p th:text="${comment.text}"></p>
+					</li>
+				</ul>
+			<form th:action="@{|./${doggo.id}/add-comment|}" method="post" id="comment">
+			  <textarea name="message" rows="8" cols="50" form="comment">Enter your comment here!</textarea>
+			  <input type="hidden" th:value="${doggo.id}" name="id" />
+			  <br>
+			  <input type="submit">
+			</form>
+		</section>
 	</main>
 	<footer>
 		<small>&copy; WCCI 2018</small>
 		<small><a href="https://omfgdogs.com">if you like dogs</a></small>
 	</footer>
+	<script src="/js/app.js"></script>
 </div>
 </body>
 </html>
