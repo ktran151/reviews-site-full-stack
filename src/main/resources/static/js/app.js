@@ -1,3 +1,4 @@
+
 const id = window.location.pathname.split('/')[2]
 console.log(id)
 //fetch(`api/doggos/${id}`)
@@ -41,3 +42,4 @@ addTagButton.addEventListener('click', () => {
 		.then(res => res.json())
 		.then(data => console.log(data))
 })
+

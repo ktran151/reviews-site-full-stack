@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.wecancodeit.reviewssite.repositories.CategoryRepository;
+
+import org.wecancodeit.reviewssite.repository.CategoryRepository;
 
 @Controller
 @RequestMapping("/categories")
@@ -17,7 +18,8 @@ public class CategoryController {
 	private CategoryRepository categoryRepo;
 
 	@GetMapping("")
-	public String getCatecories(Model model) {
+	public String getHome(Model model) {
+
 		model.addAttribute("categories", categoryRepo.findAll());
 		return "categories/categories";
 	}

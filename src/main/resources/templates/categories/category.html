@@ -17,7 +17,7 @@
 	</header>
 	<main>
 		<ul>
-			<li th:each=" doggo: ${category.doggo}" ><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Description/review</a></li>
+			<li th:each=" doggo: ${category.doggos}" ><a th:href="|/doggos/${doggo.id}|" th:text="${doggo.title}">Description/review</a></li>
 		</ul>
 	</main>
 	<footer>

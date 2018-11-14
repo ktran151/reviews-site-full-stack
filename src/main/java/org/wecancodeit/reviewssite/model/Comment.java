@@ -6,7 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Comment {
@@ -26,6 +28,7 @@ public class Comment {
 
 	public Comment(String text, Doggo doggo) {
 		this.text = text;
+
 		this.doggo = doggo;
 	}
 
@@ -40,5 +43,4 @@ public class Comment {
 	public Doggo getDoggo() {
 		return doggo;
 	}
-
 }

@@ -17,6 +17,7 @@ import org.wecancodeit.reviewssite.repositories.CategoryRepository;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
 import org.wecancodeit.reviewssite.repositories.TagRepository;
 
+
 @RestController
 public class ApiController {
 
@@ -28,21 +29,20 @@ public class ApiController {
 
 	@Autowired
 	private TagRepository tagRepo;
+  
+  @Autowired
+	private DoggoRepository reviewRepo;
 
 	@GetMapping("/api/doggos")
 	public Iterable<Doggo> getDoggos() {
 		return doggoRepo.findAll();
 	}
-
+  
 	@GetMapping("/api/doggos/{id}")
 	public Doggo getDoggo(@PathVariable(value = "id") Long id) {
 		return doggoRepo.findById(id).get();
 	}
 
-	@GetMapping("/api/tags/{name}")
-	public Tag getTag(@PathVariable(value = "name") String tagName) {
-		return tagRepo.findByTagNameIgnoreCase(tagName);
-	}
 
 	@GetMapping("/api/category/{id}")
 	public Category getCategory(@PathVariable(value = "id") Long id) {
@@ -69,5 +69,6 @@ public class ApiController {
 		tagRepo.save(tag);
 		return doggo.getTags();
 	}
+
 
 }

@@ -1,12 +1,14 @@
 package org.wecancodeit.reviewssite.controller;
 
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.wecancodeit.reviewssite.model.Category;
@@ -18,33 +20,31 @@ import org.wecancodeit.reviewssite.repositories.CommentRepository;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
 import org.wecancodeit.reviewssite.repositories.TagRepository;
 
+
 @Controller
 public class ReviewController {
 
-	@Resource
+	@Autowired
 	private DoggoRepository reviewRepo;
-
-	@Resource
-	private CategoryRepository categoryRepo;
-
-	@Resource
+	
+	@Autowired
+	private CommentRepository commentRepo;
+	
+	@Autowired
 	private TagRepository tagRepo;
 
-	@Resource
-	private CommentRepository commentRepo;
-
-	@RequestMapping(value = "/")
+	@GetMapping("/")
 	public String getHome() {
 		return "index";
 	}
 
-	@RequestMapping("/doggos")
-	public String showDoggos(Model model) {
+	@GetMapping("/doggos")
+	public String getDoggos(Model model) {
 		model.addAttribute("doggos", reviewRepo.findAll());
 		return "reviews";
 	}
 
-	@RequestMapping("doggos/{id}")
+	@GetMapping("doggos/{id}")
 	public String getDoggo(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("doggo", reviewRepo.findById(id).get());
 		return "review";
@@ -82,4 +82,5 @@ public class ReviewController {
 		tagRepo.save(tag);
 		return "redirect:/doggos/{id}";
 	}
+
 }

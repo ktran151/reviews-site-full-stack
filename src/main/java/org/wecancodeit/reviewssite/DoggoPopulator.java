@@ -1,4 +1,4 @@
-package org.wecancodeit.reviewssite;
+/*package org.wecancodeit.reviewssite;
 
 import javax.annotation.Resource;
 
@@ -11,6 +11,7 @@ import org.wecancodeit.reviewssite.repositories.CategoryRepository;
 import org.wecancodeit.reviewssite.repositories.CommentRepository;
 import org.wecancodeit.reviewssite.repositories.DoggoRepository;
 import org.wecancodeit.reviewssite.repositories.TagRepository;
+
 
 @Service
 public class DoggoPopulator implements CommandLineRunner {
@@ -120,4 +121,4 @@ public class DoggoPopulator implements CommandLineRunner {
 		doggoNine = doggoRepo.save(doggoNine);
 
 	}
-}
+}*/

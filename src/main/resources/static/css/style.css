@@ -16,6 +16,10 @@ footer{
 	background-color: black;
 }
 
+form{
+	margin: 2rem 0;
+}
+
 header{
 	color: white;
 	background-color: black;
@@ -25,6 +29,7 @@ header li{
 	color: white;
 	list-style-type: none;
 }
+
 
 #tags {
 	display: flex;

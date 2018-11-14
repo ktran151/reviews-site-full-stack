@@ -20,10 +20,7 @@ public class Category {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "category")
-	private Collection<Doggo> doggo;
-
-	public Category() {
-	}
+	private Collection<Doggo> doggos;
 
 	public Category(String name) {
 		this.name = name;
@@ -37,8 +34,8 @@ public class Category {
 		return name;
 	}
 
-	public Collection<Doggo> getDoggo() {
-		return doggo;
+	public Collection<Doggo> getDoggos() {
+		return doggos;
 	}
 
 }

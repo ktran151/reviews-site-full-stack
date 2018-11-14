@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+
 import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
@@ -55,7 +56,7 @@ public class ReviewControllerTest {
 	public void shouldReturnDoggosTemplate() throws Exception {
 		mockMvc.perform(get("/doggos")).andExpect(view().name("reviews"));
 	}
-
+  
 	@Test
 	public void shouldGoToTag() throws Exception {
 		mockMvc.perform(get("/tags/#furry")).andExpect(status().isOk());
@@ -65,4 +66,5 @@ public class ReviewControllerTest {
 	public void shouldGoToTagTemplate() throws Exception {
 		mockMvc.perform(get("/tags/#furry")).andExpect(view().name("tag"));
 	}
+
 }

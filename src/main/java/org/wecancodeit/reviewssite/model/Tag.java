@@ -19,10 +19,6 @@ public class Tag {
 		this.tagName = tagName;
 	}
 
-	public void setDoggos(Collection<Doggo> doggos) {
-		this.doggos = doggos;
-	}
-
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -32,12 +28,15 @@ public class Tag {
 	@ManyToMany(mappedBy = "tags")
 	private Collection<Doggo> doggos;
 
-	public Collection<Doggo> getDoggos() {
-		return doggos;
 	}
 
 	public String getTagName() {
 		return tagName;
 	}
 
+
+	public Collection<Doggo> getDoggos() {
+		return doggos;
+	}
+	
 }
